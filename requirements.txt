@@ -16,7 +16,7 @@ viser
 gradio
 lpips
 hydra-core
-pillow-simd
+pillow-simd==10.3.0
 h5py
 accelerate
 transformers
