@@ -167,7 +167,7 @@ def load_images(folder_or_list, size, square_ok=False, verbose=True):
         for idx, path in enumerate(image_paths)
     ]
 
-    max_workers = os.cpu_count() or 4
+    max_workers = min(8, os.cpu_count() or 8, len(tasks))
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         imgs = list(executor.map(lambda args: _process_one_image(*args), tasks))
